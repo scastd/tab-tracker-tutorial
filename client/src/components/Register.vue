@@ -1,40 +1,51 @@
 <template>
-  <v-layout column>
-    <v-flex xs6 offset-xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Register</v-toolbar-title>
-        </v-toolbar>
+  <v-container>
+    <v-row no-gutters align="center" justify="center">
+      <v-col/>
 
-        <div class="pl-4 pr-4 pt-2 pb-2">
-          <input
-            type="email"
-            name="email"
-            v-model="email"
-            placeholder="email"/>
+      <v-col>
+        <v-layout column>
+          <v-flex>
+            <div>
+              <v-card flat dense block dark>
+                <v-card-text>
+                  Registration
+                </v-card-text>
+              </v-card>
 
-          <br>
+              <div>
+                <v-text-field
+                  label="Email"
+                  v-model="email"/>
+                <br>
 
-          <input
-            type="password"
-            name="password"
-            v-model="password"
-            placeholder="password"/>
-          <br>
+                <v-text-field
+                  label="Password"
+                  v-model="password"/>
+                <br>
 
-          <div class="error" v-html="error" />
+                <div class="error" v-html="error"/>
 
-          <br>
+                <br>
 
-          <v-btn
-            class="cyan"
-            @click="register">
-            Register
-          </v-btn>
-        </div>
-      </div>
-    </v-flex>
-  </v-layout>
+                <v-btn
+                  class="register-btn"
+                  color="#66BB6A"
+                  block
+                  rounded
+                  @click="register">
+                  Register
+                </v-btn>
+              </div>
+            </div>
+          </v-flex>
+        </v-layout>
+      </v-col>
+
+      <v-col/>
+    </v-row>
+  </v-container>
+
 </template>
 
 <script>
@@ -68,5 +79,14 @@ export default {
 <style scoped>
 .error {
   color: red;
+}
+
+.v-card__text {
+  color: #66bb6a !important;
+  font-size: 23px;
+}
+
+.register-btn {
+  color: black !important;
 }
 </style>

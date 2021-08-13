@@ -1,12 +1,17 @@
 <template>
   <div id="app">
+    <page-header/>
     <router-view/>
   </div>
 </template>
 
 <script>
+import PageHeader from '@/components/Header.vue';
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    PageHeader
+  }
 };
 </script>
 
@@ -19,4 +24,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.input-group--text-field input {
+  border-bottom: 1px solid black;
+}
+
+
 </style>
