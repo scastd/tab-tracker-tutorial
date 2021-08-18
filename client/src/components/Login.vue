@@ -9,24 +9,20 @@
             <div>
               <v-card flat dense block dark>
                 <v-card-text>
-                  Registration
+                  Login
                 </v-card-text>
               </v-card>
 
               <div>
-                <form name="tab-tracker-form" autocomplete="off">
-                  <v-text-field
-                    label="Email"
-                    v-model="email"/>
-                  <br>
+                <v-text-field
+                  label="Email"
+                  v-model="email"/>
+                <br>
 
-                  <v-text-field
-                    type="password"
-                    label="Password"
-                    v-model="password"
-                    autocomplete="new-password"/>
-                </form>
-
+                <v-text-field
+                  type="password"
+                  label="Password"
+                  v-model="password"/>
                 <br>
 
                 <div class="error" v-html="error"/>
@@ -38,8 +34,8 @@
                   color="#66BB6A"
                   block
                   rounded
-                  @click="register">
-                  Register
+                  @click="login">
+                  Login
                 </v-btn>
               </div>
             </div>
@@ -65,9 +61,9 @@ export default {
     };
   },
   methods: {
-    async register() {
+    async login() {
       try {
-        const response = await AuthService.register({
+        const response = await AuthService.login({
           email: this.email,
           password: this.password
         });
