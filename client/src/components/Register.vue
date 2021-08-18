@@ -34,8 +34,7 @@
                 <br>
 
                 <v-btn
-                  class="register-btn"
-                  color="#66BB6A"
+                  class="register-btn green lighten-1"
                   block
                   rounded
                   @click="register">

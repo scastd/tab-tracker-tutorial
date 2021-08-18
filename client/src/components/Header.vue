@@ -1,7 +1,6 @@
 <template>
   <v-toolbar
-    class="toolbar"
-    color="#66BB6A"
+    class="toolbar green lighten-1"
     dense
     flat
     fixed>
@@ -30,6 +29,10 @@
              v-if="!this.$store.state.isUserLoggedIn">
         Sign Up
       </v-btn>
+
+      <div>
+<!--        Mostrar username y signOut juntos, a la derecha-->
+      </div>
 
       <v-btn elevation="0"
              dark
