@@ -6,38 +6,32 @@
       <v-col>
         <v-layout column>
           <v-flex>
-            <div>
-              <v-card flat dense block dark>
-                <v-card-text>
-                  Login
-                </v-card-text>
-              </v-card>
 
-              <div>
-                <v-text-field
-                  label="Email"
-                  v-model="email"/>
-                <br>
+            <Panel title="Login">
+              <v-text-field
+                label="Email"
+                v-model="email"/>
 
-                <v-text-field
-                  type="password"
-                  label="Password"
-                  v-model="password"/>
-                <br>
+              <v-text-field
+                type="password"
+                label="Password"
+                v-model="password"/>
 
-                <div class="error" v-html="error"/>
-
-                <br>
-
-                <v-btn
-                  class="register-btn green lighten-1"
-                  block
-                  rounded
-                  @click="login">
-                  Login
-                </v-btn>
+              <div v-if="!!error">
+                <v-alert type="error" v-html="error"/>
               </div>
-            </div>
+
+              <br>
+
+              <v-btn
+                class="green lighten-1 black--text"
+                block
+                rounded
+                @click="login">
+                Login
+              </v-btn>
+            </Panel>
+
           </v-flex>
         </v-layout>
       </v-col>
@@ -50,6 +44,7 @@
 
 <script>
 import AuthService from '@/services/AuthService';
+import Panel from '@/components/Panel';
 
 export default {
   data() {
@@ -59,6 +54,11 @@ export default {
       error: null
     };
   },
+
+  components: {
+    Panel
+  },
+
   methods: {
     async login() {
       try {
@@ -70,7 +70,7 @@ export default {
         await this.$store.dispatch('setToken', response.data.token);
         await this.$store.dispatch('setUser', response.data.user);
 
-        await this.$router.push({name: 'home'});
+        await this.$router.push({ name: 'home' });
 
         this.error = null; // Clear the error when data is entered correctly
       } catch (e) {
@@ -82,16 +82,4 @@ export default {
 </script>
 
 <style scoped>
-.error {
-  color: red;
-}
-
-.v-card__text {
-  color: #66bb6a !important;
-  font-size: 23px;
-}
-
-.register-btn {
-  color: black !important;
-}
 </style>

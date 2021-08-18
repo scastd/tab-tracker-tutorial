@@ -1,22 +1,31 @@
 <template>
   <v-toolbar
-    class="toolbar green lighten-1"
+    class="green lighten-1 mb-4 elevation-0"
     dense
     flat
     fixed>
 
-    <v-toolbar-title>
-      <span class="home" @click="navigateTo({name: 'root'})">
+    <v-toolbar-title class="mr-4">
+      <span
+        class="home"
+        @click="navigateTo({name: 'root'})">
         TabTracker
       </span>
     </v-toolbar-title>
+
+    <v-toolbar-items>
+      <v-btn elevation="0"
+             dark
+             @click="navigateTo({name: 'songs'})">
+        Browse
+      </v-btn>
+    </v-toolbar-items>
 
     <v-spacer/>
 
     <v-toolbar-items>
       <v-btn elevation="0"
              dark
-             rounded
              @click="navigateTo({name: 'login'})"
              v-if="!this.$store.state.isUserLoggedIn">
         Login
@@ -24,19 +33,17 @@
 
       <v-btn elevation="0"
              dark
-             rounded
              @click="navigateTo({name: 'register'})"
              v-if="!this.$store.state.isUserLoggedIn">
         Sign Up
       </v-btn>
 
       <div>
-<!--        Mostrar username y signOut juntos, a la derecha-->
+        <!--        Mostrar username y signOut juntos, a la derecha-->
       </div>
 
       <v-btn elevation="0"
              dark
-             rounded
              @click="signOut"
              v-if="this.$store.state.isUserLoggedIn">
         Sign Out
@@ -54,8 +61,8 @@ export default {
     },
 
     signOut() {
-      this.$store.dispatch('setToken', null);
-      this.navigateTo({name: 'root'});
+      this.$store.dispatch('clearUserData');
+      this.$router.push({ name: 'root' });
     }
   }
 };
@@ -68,9 +75,5 @@ export default {
 
 .home:hover {
   color: #fff;
-}
-
-.toolbar {
-  margin-bottom: 15px;
 }
 </style>
