@@ -3,16 +3,17 @@
     <v-toolbar
       rounded
       elevation="0"
-      dense
       block
       dark>
       <v-toolbar-title
         class="toolbar-title green--text lighten-1">
         {{ title }}
       </v-toolbar-title>
+
+      <slot name="action" />
     </v-toolbar>
 
-    <div class="elevation-10 pl-4 pr-4 pt-2 pb-2">
+    <div class="elevation-3 pl-4 pr-4 pt-2 pb-2">
       <slot>
         No slot content defined.
       </slot>
@@ -22,6 +23,8 @@
 
 <script>
 export default {
+  name: 'Panel',
+
   props: [
     'title'
   ]

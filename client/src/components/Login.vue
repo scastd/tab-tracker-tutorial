@@ -7,7 +7,7 @@
         <v-layout column>
           <v-flex>
 
-            <Panel title="Login">
+            <panel title="Login">
               <v-text-field
                 label="Email"
                 v-model="email"/>
@@ -27,10 +27,11 @@
                 class="green lighten-1 black--text"
                 block
                 rounded
+                dark
                 @click="login">
                 Login
               </v-btn>
-            </Panel>
+            </panel>
 
           </v-flex>
         </v-layout>

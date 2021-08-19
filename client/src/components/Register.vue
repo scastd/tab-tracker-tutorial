@@ -7,7 +7,7 @@
         <v-layout column>
           <v-flex>
 
-            <Panel title="Register">
+            <panel title="Register">
               <form name="tab-tracker-form" autocomplete="off">
                 <v-text-field
                   label="Email"
@@ -33,7 +33,7 @@
                 @click="register">
                 Register
               </v-btn>
-            </Panel>
+            </panel>
 
           </v-flex>
         </v-layout>
@@ -49,6 +49,8 @@ import AuthService from '@/services/AuthService';
 import Panel from '@/components/Panel';
 
 export default {
+  name: 'Register',
+
   data() {
     return {
       email: '',

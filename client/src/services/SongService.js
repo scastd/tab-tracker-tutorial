@@ -5,7 +5,7 @@ export default {
     return Api().get('songs');
   },
 
-  post() {
-    return Api().post('songs');
+  post(song) {
+    return Api().post('songs', song);
   }
 };

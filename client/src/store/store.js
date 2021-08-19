@@ -9,7 +9,8 @@ export default new Vuex.Store({
   state: {
     token: null,
     user: null,
-    isUserLoggedIn: false
+    isUserLoggedIn: false,
+    darkMode: false,
   },
 
   mutations: {
@@ -27,6 +28,10 @@ export default new Vuex.Store({
       state.user = data;
       state.token = data;
       state.isUserLoggedIn = false;
+    },
+
+    toggleDarkMode(state) {
+      state.darkMode = !state.darkMode;
     }
   },
 
@@ -41,6 +46,10 @@ export default new Vuex.Store({
 
     clearUserData({ commit }) {
       commit('clearUserData', null);
+    },
+
+    toggleDarkMode({ commit }) {
+      commit('toggleDarkMode');
     }
   }
 });

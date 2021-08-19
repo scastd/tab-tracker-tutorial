@@ -1,6 +1,6 @@
 <template>
   <v-toolbar
-    class="green lighten-1 mb-4 elevation-0"
+    class="green lighten-0 mb-4 elevation-0"
     dense
     flat
     fixed>
@@ -23,29 +23,34 @@
 
     <v-spacer/>
 
-    <v-toolbar-items>
+    <v-btn dark elevation="0" class="mr-3" @click="toggleUITheme">
+      Theme
+    </v-btn>
+
+    <v-toolbar-items v-if="!this.$store.state.isUserLoggedIn">
       <v-btn elevation="0"
              dark
-             @click="navigateTo({name: 'login'})"
-             v-if="!this.$store.state.isUserLoggedIn">
+             @click="navigateTo({name: 'login'})">
         Login
       </v-btn>
 
       <v-btn elevation="0"
              dark
-             @click="navigateTo({name: 'register'})"
-             v-if="!this.$store.state.isUserLoggedIn">
+             @click="navigateTo({name: 'register'})">
         Sign Up
       </v-btn>
+    </v-toolbar-items>
 
-      <div>
-        <!--        Mostrar username y signOut juntos, a la derecha-->
-      </div>
+    <v-toolbar-items v-if="this.$store.state.isUserLoggedIn">
+      <v-btn elevation="0"
+             dark
+             @click="navigateTo({ name: 'profile' })">
+        Profile
+      </v-btn>
 
       <v-btn elevation="0"
              dark
-             @click="signOut"
-             v-if="this.$store.state.isUserLoggedIn">
+             @click="signOut">
         Sign Out
       </v-btn>
     </v-toolbar-items>
@@ -55,6 +60,8 @@
 
 <script>
 export default {
+  name: 'PageHeader',
+
   methods: {
     navigateTo(route) {
       this.$router.push(route);
@@ -63,6 +70,10 @@ export default {
     signOut() {
       this.$store.dispatch('clearUserData');
       this.$router.push({ name: 'root' });
+    },
+
+    toggleUITheme() {
+      //
     }
   }
 };

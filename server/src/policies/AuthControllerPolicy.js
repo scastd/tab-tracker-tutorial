@@ -7,7 +7,7 @@ module.exports = {
       password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{8,32}$'))
     });
 
-    const { error, value } = schema.validate(req.body);
+    const { error } = schema.validate(req.body);
 
     if (error) {
       switch (error.details[0].context.key) {
@@ -34,7 +34,7 @@ module.exports = {
         });
       }
     } else {
-      next();
+      next(); // Executes AuthController.register
     }
   }
 };

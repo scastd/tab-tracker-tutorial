@@ -1,12 +1,12 @@
 <template>
   <div>
-
+    Hola, estoy en el perfil de {{ this.$store.state.user.email }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Profile'
 };
 </script>
 

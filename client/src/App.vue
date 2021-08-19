@@ -8,10 +8,11 @@
 </template>
 
 <script>
-import PageHeader from '@/components/Header.vue';
+import PageHeader from '@/components/PageHeader.vue';
 
 export default {
   name: 'App',
+
   components: {
     PageHeader
   }
@@ -24,6 +25,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 0;
+  /*background: #8f8f8f;*/
+
+  /*--background-color-primary: #1e1e1e;*/
+  /*--background-color-secondary: #2d2d30;*/
+  /*--accent-color: #3f3f3f;*/
+  /*--text-primary-color: #ddd;*/
 }
 </style>
