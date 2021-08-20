@@ -3,12 +3,14 @@
     class="green lighten-0 mb-4 elevation-0"
     dense
     flat
-    fixed>
+    fixed
+  >
 
     <v-toolbar-title class="mr-4">
       <span
         class="home"
-        @click="navigateTo({name: 'root'})">
+        @click="navigateTo({name: 'root'})"
+      >
         TabTracker
       </span>
     </v-toolbar-title>
@@ -16,7 +18,8 @@
     <v-toolbar-items>
       <v-btn elevation="0"
              dark
-             @click="navigateTo({name: 'songs'})">
+             @click="navigateTo({name: 'songs'})"
+      >
         Browse
       </v-btn>
     </v-toolbar-items>
@@ -30,13 +33,15 @@
     <v-toolbar-items v-if="!this.$store.state.isUserLoggedIn">
       <v-btn elevation="0"
              dark
-             @click="navigateTo({name: 'login'})">
+             @click="navigateTo({name: 'login'})"
+      >
         Login
       </v-btn>
 
       <v-btn elevation="0"
              dark
-             @click="navigateTo({name: 'register'})">
+             @click="navigateTo({name: 'register'})"
+      >
         Sign Up
       </v-btn>
     </v-toolbar-items>
@@ -44,13 +49,15 @@
     <v-toolbar-items v-if="this.$store.state.isUserLoggedIn">
       <v-btn elevation="0"
              dark
-             @click="navigateTo({ name: 'profile' })">
+             @click="navigateTo({ name: 'profile' })"
+      >
         Profile
       </v-btn>
 
       <v-btn elevation="0"
              dark
-             @click="signOut">
+             @click="signOut"
+      >
         Sign Out
       </v-btn>
     </v-toolbar-items>
@@ -60,22 +67,22 @@
 
 <script>
 export default {
-  name: 'PageHeader',
+    name: 'PageHeader',
 
-  methods: {
-    navigateTo(route) {
-      this.$router.push(route);
-    },
+    methods: {
+        navigateTo(route) {
+            this.$router.push(route);
+        },
 
-    signOut() {
-      this.$store.dispatch('clearUserData');
-      this.$router.push({ name: 'root' });
-    },
+        signOut() {
+            this.$store.dispatch('clearUserData');
+            this.$router.push({ name: 'root' });
+        },
 
-    toggleUITheme() {
-      //
+        toggleUITheme() {
+            //
+        }
     }
-  }
 };
 </script>
 

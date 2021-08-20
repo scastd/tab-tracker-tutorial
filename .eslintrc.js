@@ -16,7 +16,7 @@ module.exports = {
   ],
 
   rules: {
-    indent: ['error', 2],
+    indent: ['error', 4],
     semi: ['error', 'always'],
     quotes: ['warn', 'single',
       {
@@ -37,6 +37,20 @@ module.exports = {
       max: 2,
       maxEOF: 0
     }],
-    'no-console': 'off'
+    'no-console': 'off',
+
+    // Custom rules for vue
+    "vue/html-closing-bracket-newline": ["error", {
+        "singleline": "never",
+        "multiline": "always"
+    }],
+    "vue/html-self-closing": ["error", {
+        "html": {
+          "normal": "never",
+          "void": "always",
+          "component": "always"
+        }
+    }],
+    "vue/mustache-interpolation-spacing": ["error", "always"]
   }
 };

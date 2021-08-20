@@ -4,13 +4,15 @@
       rounded
       elevation="0"
       block
-      dark>
+      dark
+    >
       <v-toolbar-title
-        class="toolbar-title green--text lighten-1">
+        class="toolbar-title green--text lighten-1"
+      >
         {{ title }}
       </v-toolbar-title>
 
-      <slot name="action" />
+      <slot name="action"></slot>
     </v-toolbar>
 
     <div class="elevation-3 pl-4 pr-4 pt-2 pb-2">
@@ -23,11 +25,11 @@
 
 <script>
 export default {
-  name: 'Panel',
+    name: 'Panel',
 
-  props: [
-    'title'
-  ]
+    props: {
+        title: String
+    }
 };
 </script>
 

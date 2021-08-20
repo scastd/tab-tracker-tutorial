@@ -6,13 +6,13 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+    name: 'HelloWorld',
 
-  data() {
-    return {
-      msg: 'Welcome to TabTracker App!',
-    };
-  }
+    data() {
+        return {
+            msg: 'Welcome to TabTracker App!'
+        };
+    }
 };
 </script>
 

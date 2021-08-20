@@ -1,29 +1,29 @@
 const { Song } = require('../models');
 
 module.exports = {
-  async index(req, res) {
-    try {
-      const songs = await Song.findAll({
-        limit: 10
-      });
+    async index(req, res) {
+        try {
+            const songs = await Song.findAll({
+                limit: 10
+            });
 
-      res.send(songs);
-    } catch (e) {
-      res.status(500).send({
-        error: 'An error occurred while fetching the songs'
-      });
+            res.send(songs);
+        } catch (e) {
+            res.status(500).send({
+                error: 'An error occurred while fetching the songs'
+            });
+        }
+    },
+
+    async post(req, res) {
+        try {
+            const song = await Song.create(req.body);
+
+            res.send(song);
+        } catch (e) {
+            res.status(500).send({
+                error: 'An error occurred while trying to create the song'
+            });
+        }
     }
-  },
-
-  async post(req, res) {
-    try {
-      const song = await Song.create(req.body);
-
-      res.send(song);
-    } catch (e) {
-      res.status(500).send({
-        error: 'An error occurred while trying to create the song'
-      });
-    }
-  }
 };

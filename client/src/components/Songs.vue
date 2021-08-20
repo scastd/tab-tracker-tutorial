@@ -10,7 +10,8 @@
                right
                middle
                light
-               @click="navigateTo({name: 'add-song'})">
+               @click="navigateTo({name: 'add-song'})"
+        >
           <v-icon>add</v-icon>
         </v-btn>
 
@@ -27,28 +28,28 @@ import SongService from '@/services/SongService';
 import Panel from '@/components/Panel';
 
 export default {
-  name: 'Songs',
+    name: 'Songs',
 
-  data() {
-    return {
-      songs: null
-    };
-  },
+    data() {
+        return {
+            songs: null
+        };
+    },
 
-  components: {
-    Panel
-  },
+    components: {
+        Panel
+    },
 
-  methods: {
-    navigateTo(route) {
-      this.$router.push(route);
-    }
-  },
+    methods: {
+        navigateTo(route) {
+            this.$router.push(route);
+        }
+    },
 
-  async mounted() {
+    async mounted() {
     // Do a request to the backend for all the songs
-    this.songs = (await SongService.index()).data; // This is how Axios return data
-  }
+        this.songs = (await SongService.index()).data; // This is how Axios return data
+    }
 };
 </script>
 

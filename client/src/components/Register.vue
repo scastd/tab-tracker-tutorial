@@ -11,26 +11,29 @@
               <form name="tab-tracker-form" autocomplete="off">
                 <v-text-field
                   label="Email"
-                  v-model="email"/>
+                  v-model="email"
+/>
 
                 <v-text-field
                   type="password"
                   label="Password"
                   v-model="password"
-                  autocomplete="new-password"/>
+                  autocomplete="new-password"
+/>
               </form>
 
               <div v-if="!!error">
                 <v-alert type="error" v-html="error"/>
               </div>
 
-              <br>
+              <br/>
 
               <v-btn
                 class="green lighten-1 black--text"
                 block
                 rounded
-                @click="register">
+                @click="register"
+>
                 Register
               </v-btn>
             </panel>
@@ -45,43 +48,43 @@
 </template>
 
 <script>
-import AuthService from '@/services/AuthService';
+import AuthenticationService from '@/services/AuthenticationService';
 import Panel from '@/components/Panel';
 
 export default {
-  name: 'Register',
+    name: 'Register',
 
-  data() {
-    return {
-      email: '',
-      password: '',
-      error: null
-    };
-  },
+    data() {
+        return {
+            email: '',
+            password: '',
+            error: null
+        };
+    },
 
-  components: {
-    Panel
-  },
+    components: {
+        Panel
+    },
 
-  methods: {
-    async register() {
-      try {
-        const response = await AuthService.register({
-          email: this.email,
-          password: this.password
-        });
+    methods: {
+        async register() {
+            try {
+                const response = await AuthenticationService.register({
+                    email: this.email,
+                    password: this.password
+                });
 
-        await this.$store.dispatch('setToken', response.data.token);
-        await this.$store.dispatch('setUser', response.data.user);
+                await this.$store.dispatch('setToken', response.data.token);
+                await this.$store.dispatch('setUser', response.data.user);
 
-        await this.$router.push({ name: 'home' });
+                await this.$router.push({ name: 'home' });
 
-        this.error = null; // Clear the error when data is entered correctly
-      } catch (e) {
-        this.error = e.response.data.error;
-      }
+                this.error = null; // Clear the error when data is entered correctly
+            } catch (e) {
+                this.error = e.response.data.error;
+            }
+        }
     }
-  }
 };
 </script>
 

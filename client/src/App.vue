@@ -1,20 +1,20 @@
 <template>
   <v-app>
     <div id="app">
-      <page-header/>
+      <the-header/>
       <router-view/>
     </div>
   </v-app>
 </template>
 
 <script>
-import PageHeader from '@/components/PageHeader.vue';
+import TheHeader from '@/components/TheHeader.vue';
 
 export default {
   name: 'App',
 
   components: {
-    PageHeader
+    TheHeader
   }
 };
 </script>
